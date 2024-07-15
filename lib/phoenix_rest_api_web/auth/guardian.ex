@@ -24,7 +24,7 @@ defmodule PhoenixRestApiWeb.Auth.Guardian do
 
   def authenticate(email, password) do
     case Accounts.get_account_by_email(email) do
-      nil -> {:error, :account_not_found}
+      nil -> {:error, :unauthorized}
       account ->
         case valid_password(password, account.hash_password) do
           true -> create_token(account)
