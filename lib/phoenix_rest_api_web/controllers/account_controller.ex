@@ -17,7 +17,8 @@ defmodule PhoenixRestApiWeb.AccountController do
          {:ok, %User{} = _user} <- Users.create_user(account, account_params)  do
       conn
       |> put_status(:created)
-      |> render(:show, account: account) # Find a way to render the token
+      # |> render(:show, account: account) # Find a way to render the token
+      |> json(%{id: account.id, email: account.email, token: token})
     end
   end
 
