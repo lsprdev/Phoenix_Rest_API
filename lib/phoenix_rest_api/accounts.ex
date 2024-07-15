@@ -37,6 +37,17 @@ defmodule PhoenixRestApi.Accounts do
   """
   def get_account!(id), do: Repo.get!(Account, id)
 
+  # def get_account_by_email!(email), do: Repo.get_by!(Account, email: email)
+
+  def get_account_by_email(email) do
+    Account
+    |> where(email: ^email)
+    |> Repo.one()
+  end
+
+
+
+
   @doc """
   Creates a account.
 

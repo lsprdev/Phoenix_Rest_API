@@ -27,6 +27,13 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+# Configures Guardian
+config :phoenix_rest_api, PhoenixRestApiWeb.Auth.Guardian,
+  issuer: "phoenix_rest_api",
+  secret_key: "erG56OZD7vJqMHpd7aXLsKf9rsaOu9/WhgMoNZox/MGu5uJYuZA3LaSnh+hKUL5y"
+  # serializer: PhoenixRestApiWeb.GuardianSerializer
+
+
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
